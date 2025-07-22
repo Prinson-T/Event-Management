@@ -9,7 +9,6 @@ html, body, #root {
     background-color: #ffffff;
 }
 
-/* Left: background image */
 .split.left-side {
     flex: 1;
     background: url('../../assets/Adminlogin.jpg') no-repeat center/cover;
