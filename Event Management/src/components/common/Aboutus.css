@@ -1,0 +1,67 @@
+.about-us{
+    width: 100%;
+}
+
+.about-parah{
+    text-align: justify;
+    padding: 20px;
+}
+.about-heading{
+    text-align: center;
+    
+}
+
+.about-main-heading{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+/* .about-us-img{
+    background-image: url("https://oakstreetevents.com/wp-content/uploads/2024/10/TajBekalDestinationWedding.jpg");
+    position: relative;
+    
+} */
+
+.verticalalign {
+    width: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; 
+}
+
+.verticalalign-two {
+    width: 15%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block; 
+}
+
+.team{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.about-photo{
+    height: auto;
+    width: 100%;
+}
+
+.about-image{
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.center-img{
+    text-align: center;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 100%;
+}
