@@ -18,7 +18,6 @@ html, body, #root {
 
 }
 
-/* Right: centered login form */
 .split.right-side {
     flex: 1;
     display: flex;
