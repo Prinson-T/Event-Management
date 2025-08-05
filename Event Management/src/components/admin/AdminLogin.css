@@ -1,9 +1,8 @@
-/* Full-screen split container */
 html, body, #root {
     height: 100%;
     margin: 0;
 }
-.login-screen {
+.login-admin {
     display: flex;
     height: 100vh;
     background-color: #ffffff;
@@ -25,8 +24,7 @@ html, body, #root {
     padding: 2rem;
 }
 
-/* Login box styling */
-.login-box {
+.admin-box {
     padding: 2rem;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     width: 100%;
@@ -34,17 +32,17 @@ html, body, #root {
     text-align: center;
 }
 
-.login-box h1 {
+.admin-head {
     margin-bottom: 1.5rem;
     color: black;
 }
 
-.login-box form {
+.admin-form {
     display: flex;
     flex-direction: column;
 }
 
-.login-box input {
+.admin-input {
     padding: 0.75rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
@@ -52,7 +50,7 @@ html, body, #root {
     border-radius: 10px;
 }
 
-.login-box button {
+.admin-button {
     padding: 0.75rem;
     background-color: #0066cc;
     color: #fff;
@@ -63,11 +61,10 @@ html, body, #root {
     transition: background-color 0.2s ease;
 }
 
-.login-box button:hover {
+.admin-button:hover {
     background-color: #005bb5;
 }
 
-/* Link styles */
 .links {
     margin-top: 1rem;
 }
@@ -87,9 +84,8 @@ html, body, #root {
     color: #004a99;
 }
 
-/* Responsive: stack on mobile */
 @media (max-width: 768px) {
-  .login-screen {
+  .login-admin {
     flex-direction: column;
   }             
   .split {

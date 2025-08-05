@@ -1,0 +1,98 @@
+html, body, #root {
+    height: 100%;
+    margin: 0;
+}
+.login-user {
+    display: flex;
+    height: 100vh;
+    background-color: #ffffff;
+}
+
+.split.left-side {
+    flex: 1;
+    background: url('../../assets/Adminlogin.jpg') no-repeat center/cover;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 20px;
+
+}
+
+.split.right-side {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.admin-box {
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 404px;
+    text-align: center;
+}
+
+.admin-head {
+    margin-bottom: 1.5rem;
+    color: black;
+}
+
+.admin-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-input {
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.admin-button {
+    padding: 0.75rem;
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.admin-button:hover {
+    background-color: #005bb5;
+}
+
+.links {
+    margin-top: 1rem;
+}
+.links a {
+    text-decoration: none;
+    color: #0066cc;
+    margin: 0 0.5rem;
+}
+.forgot{
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    text-decoration: none;
+    font-size: small;
+}
+.links a:hover {
+    color: #004a99;
+}
+
+@media (max-width: 768px) {
+  .login-admin {
+    flex-direction: column;
+  }             
+  .split {
+    height: 50vh;
+  }
+}
+
+
+
+
