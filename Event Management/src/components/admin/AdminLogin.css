@@ -1,14 +1,10 @@
-html, body, #root {
-    height: 100%;
-    margin: 0;
-}
 .login-admin {
     display: flex;
     height: 100vh;
     background-color: #ffffff;
 }
 
-.split.left-side {
+.admin-image {
     flex: 1;
     background: url('../../assets/Adminlogin.jpg') no-repeat center/cover;
     border-top-left-radius: 10px;
@@ -16,7 +12,7 @@ html, body, #root {
 
 }
 
-.split.right-side {
+.admin-login-div {
     flex: 1;
     display: flex;
     align-items: center;
@@ -83,16 +79,5 @@ html, body, #root {
 .links a:hover {
     color: #004a99;
 }
-
-@media (max-width: 768px) {
-  .login-admin {
-    flex-direction: column;
-  }             
-  .split {
-    height: 50vh;
-  }
-}
-
-
 
 

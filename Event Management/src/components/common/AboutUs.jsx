@@ -23,7 +23,7 @@ function AboutUs() {
                     <img src={photo} alt="" className='about-photo' />
                 </div>
                 <div className="col-12 col-md-6 ">
-                    <h1 className='about-heading'>Oakstreet Events and Wedding planners <br />-Premium Wedding Planners in Kerala</h1>
+                    <h1 className='about-heading'>ChronoEvents<br />-Premium Wedding Planners in Kerala</h1>
                     <p className='about-parah'>Playing the role of event planners in Kerala, we take over the complete responsibility of wedding preparations. By doing so, we make the occasion seem complete in every possible manner.
                         With us, the requirements of the clients are all fulfilled under one roof. We volunteer to take up the challenges and needs during the occasion and stay prepared for perfect execution.
                         Unlike other wedding event management companies, we take over our responsibilities well ahead of time. By doing so, we meet the client and make a note of the requirements in detail.

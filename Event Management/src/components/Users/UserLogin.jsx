@@ -1,65 +1,55 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Correct import
-import axios from 'axios';
 import './UserLogin.css';
+import hostimg from '../../assets/userwelcome.jpg';
+import Navbar from '../common/Navbar';
+import { useNavigate } from 'react-router-dom';
+import Footer from '../common/Footer';
 
 function UserLogin() {
   const navigate = useNavigate();
 
-  const [admin, setAdmin] = useState({
-    name: "",
-    password: ""  // Fixed typo here
+
+  const [user, setUser] = useState({
+    email: "",
+    password: ""
   });
 
+
   const inputdata = (e) => {
-    setAdmin({ ...admin, [e.target.name]: e.target.value });
+    setUser({ ...user, [e.target.name]: e.target.value });
   };
 
-  const login = (e) => {
-    e.preventDefault();
-    axios.post("http://localhost:8080/employee/login", admin)
+
+  const usersubmit = (e) => {
+    axios.post("http://localhost:8080/employee/login", user)
       .then((result) => {
         console.log(result.data);
 
-        // navigate("/dashboard");
+
       })
       .catch((error) => {
         console.error("Login failed:", error);
       });
   };
-
   return (
     <div>
-      <div className="login-user">
-        <div className="split right-side">
-          <div className="user-box">
-            <h1 className='user-box-head'>Welcome back!</h1>
-            <p className='user-box-para'>Enter your Credentials to access your account</p>
-            {/* Optional: wrap inputs in form */}
-            <form>
-              <input
-                className='user-input'
-                type="text"
-                placeholder="Name"
-                value={admin.name}
-                name="name"
-                onChange={inputdata}
-              />
-              <input
-                className='user-input'
-                type="password"
-                placeholder="Password"
-                value={admin.password}
-                name="password"
-                onChange={inputdata}
-              />
-              <button type="button" className='user-button' onClick={login}>Login</button>
-              <a className='forgot' href="#">Forgot password?</a>
+      <Navbar />
+      <div className="container-fluid gx-0">
+        <div className="row gx-0">
+           <div className="col-12 col-md-6 ">
+            <img className="img-user" src={hostimg} alt="" />
+          </div>
+           <div className="col-12 col-md-6 user-login-div">
+            <h4 className='user-login-h2'>Login Your Account </h4>
+            <form className='user-login-form '>
+              <input type="text" placeholder='Enter Your Email' className='user-login-input' value={user.email} name='email' onChange={inputdata} />
+              <input type="password" placeholder='Enter Your Password' className='user-login-input' value={user.password} name='password' onChange={inputdata} />
+              <button className='user-login-button' onClick={usersubmit}>Submit</button>
             </form>
           </div>
         </div>
-        <div className="split left-side" aria-label="Background image"></div>
       </div>
+      <Footer />
     </div>
   );
 }

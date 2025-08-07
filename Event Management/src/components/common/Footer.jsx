@@ -6,7 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         <div className="footer-section">
-          <h2 className="footer-title">Eventify</h2>
+          <h2 className="footer-title">ChronoEvents</h2>
           <p className="footer-text">Manage and host your events easily with us.</p>
         </div>
 
@@ -31,7 +31,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        &copy; {new Date().getFullYear()} Eventify. All rights reserved.
+        &copy; {new Date().getFullYear()} ChronoEvents. All rights reserved.
       </div>
     </footer>
   );

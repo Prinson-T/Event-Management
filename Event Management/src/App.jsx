@@ -5,8 +5,9 @@ import AboutUs from './components/common/AboutUs'
 import AdminLogin from './components/admin/AdminLogin'
 import UserLogin from './components/Users/UserLogin'
 import UserForm from './components/Users/UserForm';
-import HostLogin from './components/hosts/HostLogin'
 import DashboardUser from './components/Users/DashboardUser'
+import HostForm from './components/hosts/HostForm'
+import HostLogin from './components/hosts/HostLogin'
 
 
 function App() {
@@ -16,11 +17,11 @@ function App() {
         <Routes>
           <Route path='/' element={<LandingPage />} />
           <Route path='/AdminLogin' element={<AdminLogin />} />
-          <Route path='/HosterLogin' element={<HostLogin />} />
+          <Route path='/HosterForm' element={<HostForm />} />
           <Route path='/UserLogin' element={<UserLogin />} />
           <Route path='/about' element={<AboutUs />} />
-          {/* <Route path='/' element={<LandingPage />} /> */}
           <Route path='/register' element={<UserForm />} />
+          <Route path='/hostRegister' element={<HostLogin />} />
           <Route path='/dashboard' element={<DashboardUser />} />
         </Routes>
       </Router>

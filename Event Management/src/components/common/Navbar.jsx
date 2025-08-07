@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import EventIcon from '@mui/icons-material/Event';
+
 import './Navebar.css';
 
 const pages = ['home', 'about', 'contacts'];
@@ -28,9 +30,16 @@ function ResponsiveAppBar() {
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-  const handleCloseNavMenu = () => {
+
+  const handleCloseNavMenu = (page) => {
     setAnchorElNav(null);
+    if (page === 'home') {
+      navigate('/');
+    } else if (page) {
+      navigate(`/${page}`);
+    }
   };
+
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
@@ -40,7 +49,7 @@ function ResponsiveAppBar() {
     if (setting === 'Admin') {
       navigate('/AdminLogin');
     } else if (setting === 'Hoster') {
-      navigate('/HosterLogin');
+      navigate('/HosterForm');
     } else if (setting === 'User') {
       navigate('/UserLogin');
     }
@@ -50,7 +59,7 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl" className="navigation">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <EventIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -66,7 +75,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            EVENTS
+            CHRONOEVENTS
           </Typography>
 
           {/* Mobile nav menu button */}
@@ -87,11 +96,11 @@ function ResponsiveAppBar() {
               keepMounted
               transformOrigin={{ vertical: 'top', horizontal: 'left' }}
               open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              onClose={() => handleCloseNavMenu(null)}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -101,7 +110,11 @@ function ResponsiveAppBar() {
           {/* Desktop nav links */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Button
+                key={page}
+                onClick={() => handleCloseNavMenu(page)}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
                 {page}
               </Button>
             ))}

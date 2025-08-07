@@ -1,65 +1,80 @@
 /* UserForm.css */
 
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: Arial, sans-serif;
-}
-
-.background-container {
-  background-image: url('../../assets/userform.jpg'); 
+.background-user {
+  background: url('../../assets/userform.jpg') no-repeat center center;
   background-size: cover;
-  background-position: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 2rem;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  
 }
 
-.overlay-content {
-  background-color: rgba(255, 255, 255, 0.591); 
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  width: 90%;
-  max-width: 400px;
+.overlay-content-user {
+  background-color: rgba(143, 141, 100, 0.338);
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 20px 36px rgba(0,0,0,0.2);
 }
 
-.form-container {
+.form-container-user {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 1rem;
 }
 
-input[type="text"] {
-  padding: 12px;
+.make-your{
+  color: rgb(0, 0, 0);
+  
+}
+
+.input-user {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 14px;
 }
 
-button {
-  padding: 12px;
-  background-color: #007BFF;
-  color: white;
+.input-button {
+  padding: 0.75rem;
+  font-size: 1rem;
   border: none;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 5px;
+  background-color:#23395d;
+  color: white;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition:  0.3s ease;
 }
 
-button:hover {
-  background-color: #0056b3;
+.input-button:hover {
+  background-color: #007BFF;
 }
 
-.login-tag {
-  text-align: center;
-  display: block;
-  margin-top: 10px;
-  color: #007BFF;
-  text-decoration: none;
-  font-size: 14px;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .overlay-content-user {
+    padding: 1.5rem;
+  }
+
+  .input-user, .input-button {
+    font-size: 0.95rem;
+  }
 }
 
+@media (max-width: 480px) {
+  .overlay-content-user {
+    padding: 1rem;
+  }
+
+  .form-container-user {
+    gap: 0.75rem;
+  }
+
+  .input-user, .input-button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}

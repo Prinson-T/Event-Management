@@ -1,19 +1,51 @@
-import React from 'react'
+import React, { useState } from 'react'
+import './HostForm.css'
+import Navbar from '../common/Navbar'
+import Footer from '../common/Footer';
+import { Link } from 'react-router-dom';
 
 function HostForm() {
+  const [host, setHost] = useState({
+    name: "",
+    email: "",
+    password: "",
+    gstnumber: ""
+  })
+
+  const inputData = (e) => {
+    setHost({ ...host, [e.target.name]: e.target.value });
+  };
+
+  const saveData = (e) => {
+    axios.get('http://localhost:8080/employee/register', host)
+      .then((result) => {
+        console.log(result.data);
+
+      })
+      .catch((error) => {
+        console.log(error);
+
+      });
+  }
   return (
     <div>
-      <div className="background-container col-12 col-md-12">
-        <div className="overlay-content">
-          <form className="form-container">
-            <input type="text" placeholder="name" value={first.name} name="name" onChange={inputData} />
-            <input type="text" placeholder="email" value={first.email} name="email" onChange={inputData} />
-            <input type="password" placeholder="password" value={first.password} name="password" onChange={inputData} />
-            <input type="number" placeholder="salary" value={first.salary} name="salary" onChange={inputData} />
-            <button onClick={saveData}>Submit</button>
+      <Navbar />
+      <div className="background-host ">
+        <div className="overlay-content-host">
+          <form className="form-container-host">
+            <h4 className='own-account'>Create Your Own Account</h4>
+            <input type="text" className='input-host' placeholder="name" value={host.name} name="name" onChange={inputData} />
+            <input type="text" className='input-host' placeholder="email" value={host.email} name="email" onChange={inputData} />
+            <input type="text" className='input-host' placeholder="password" value={host.password} name="password" onChange={inputData} />
+            <input type="text" className='input-host' placeholder="gstnumber" value={host.gstnumber} name="gstnumber" onChange={inputData} />
+            <button className='button-host' onClick={saveData}>Submit</button>
+            <div className='host-tag'>
+              <Link className='tag-link' to={'/hostRegister'}>Log in</Link>
+            </div>
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
