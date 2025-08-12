@@ -19,7 +19,7 @@ import './Navebar.css';
 const pages = ['home', 'about', 'contacts'];
 const settings = ['Admin', 'Hoster', 'User'];
 
-function ResponsiveAppBar() {
+function Navbar() {
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -107,7 +107,6 @@ function ResponsiveAppBar() {
             </Menu>
           </Box>
 
-          {/* Desktop nav links */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
@@ -120,7 +119,6 @@ function ResponsiveAppBar() {
             ))}
           </Box>
 
-          {/* User menu button */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <Button variant="contained" color="success" onClick={handleOpenUserMenu}>
@@ -152,4 +150,4 @@ function ResponsiveAppBar() {
   );
 }
 
-export default ResponsiveAppBar;
+export default Navbar;

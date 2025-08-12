@@ -17,7 +17,7 @@ function HostForm() {
   };
 
   const saveData = (e) => {
-    axios.get('http://localhost:8080/employee/register', host)
+    axios.get('http://localhost:8080/employee/register', host)  
       .then((result) => {
         console.log(result.data);
 

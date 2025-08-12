@@ -21,6 +21,7 @@ function HostLogin() {
     axios.post("http://localhost:8080/employee/login", hoster)
       .then((result) => {
         console.log(result.data);
+        navigate("/hostDashboard")
 
       })
       .catch((error) => {

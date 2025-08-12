@@ -8,7 +8,7 @@ import './Cards.css'
 
 
 
-export default function ActionAreaCard(props) {
+export default function Cards(props) {
     return (
 
         <Card sx={{ maxWidth: 345 }}>

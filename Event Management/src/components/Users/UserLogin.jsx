@@ -4,16 +4,16 @@ import hostimg from '../../assets/userwelcome.jpg';
 import Navbar from '../common/Navbar';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../common/Footer';
+import axios from 'axios';
 
 function UserLogin() {
   const navigate = useNavigate();
 
 
   const [user, setUser] = useState({
-    email: "",
+    name: "",
     password: ""
   });
-
 
   const inputdata = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -21,14 +21,16 @@ function UserLogin() {
 
 
   const usersubmit = (e) => {
-    axios.post("http://localhost:8080/employee/login", user)
+    e.preventDefault();
+    axios.post("http://localhost:8080/user/login", user)
       .then((result) => {
         console.log(result.data);
+        navigate("/userDashboard")
 
 
       })
       .catch((error) => {
-        console.error("Login failed:", error);
+        console.error(error);
       });
   };
   return (
@@ -42,7 +44,7 @@ function UserLogin() {
            <div className="col-12 col-md-6 user-login-div">
             <h4 className='user-login-h2'>Login Your Account </h4>
             <form className='user-login-form '>
-              <input type="text" placeholder='Enter Your Email' className='user-login-input' value={user.email} name='email' onChange={inputdata} />
+              <input type="text" placeholder='Enter Your name' className='user-login-input' value={user.name} name='name' onChange={inputdata} />
               <input type="password" placeholder='Enter Your Password' className='user-login-input' value={user.password} name='password' onChange={inputdata} />
               <button className='user-login-button' onClick={usersubmit}>Submit</button>
             </form>

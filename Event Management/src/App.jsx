@@ -8,7 +8,8 @@ import UserForm from './components/Users/UserForm';
 import DashboardUser from './components/Users/DashboardUser'
 import HostForm from './components/hosts/HostForm'
 import HostLogin from './components/hosts/HostLogin'
-
+import SideBar from './components/Users/UserSideBar'
+import UserProfileView from './components/Users/UserProfileView'
 
 function App() {
   return (
@@ -22,7 +23,9 @@ function App() {
           <Route path='/about' element={<AboutUs />} />
           <Route path='/register' element={<UserForm />} />
           <Route path='/hostRegister' element={<HostLogin />} />
-          <Route path='/dashboard' element={<DashboardUser />} />
+          <Route path='/userDashboard' element={<DashboardUser />} />
+          <Route path='/userprofileview' element={<UserProfileView />} />
+          <Route path='/sideBar' element={<SideBar />} />
         </Routes>
       </Router>
     </div>
