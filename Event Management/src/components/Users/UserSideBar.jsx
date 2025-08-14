@@ -40,7 +40,7 @@ function UserSideBar(props) {
 
   const menuItems = [
     { text: 'Dashboard', icon: <SpaceDashboardIcon sx={{ color: "#ffffff" }} />, path: '/userDashboard' },
-    { text: 'Events', icon: <EventIcon sx={{ color: "#ffffff" }} />, path: '/events' },
+    { text: 'Events', icon: <EventIcon sx={{ color: "#ffffff" }} />, path: '/ListEvents' },
     { text: 'Profile', icon: <AccountCircleIcon sx={{ color: "#ffffff" }} />, path: '/userprofileview' },
     { text: 'Log Out', icon: <LogoutIcon sx={{ color: "#ffffff" }} />, path: '/UserLogin' }
   ];

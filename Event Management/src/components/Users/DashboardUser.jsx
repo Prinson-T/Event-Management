@@ -9,16 +9,16 @@ function DashboardUser() {
     <div>
       <UserSideBar />
       {/* <h1>Welcome to the Dashboard!</h1> */}
-      <div  className='dashboarduser'>
-      <div className="card sidebar-cards" style={{ width: "20rem" }}>
+      <div  className='dashboarduser-user'>
+      <div className="card sidebar-cards-host" style={{ width: "20rem" }}>
         <img src={use} className="card-img-top" alt="..." />
         <div className="card-body">
 
         </div>
       </div>
 
-      <div className="card sidebar-cards-two" style={{ width: "20rem" }}>
-        <img src={use} className="card-img-top" alt="..." />
+      <div className="card sidebar-cardstwo-user" style={{ width: "20rem" }}>
+        <img src={use} className="card-img-top" alt="" />
         <div className="card-body">
 
         </div>

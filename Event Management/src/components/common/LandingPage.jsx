@@ -25,7 +25,7 @@ function LandingPage() {
             <p className='para'>Discover unforgettable events crafted with precision and passion. From corporate <br /> gatherings to dream weddings, we make every moment count.</p>
             <div className='button-register'>
               <Link to={'/register'}>
-                <Button variant="contained" className='sing-up'>SING UP</Button>
+                <Button variant="contained" className='sing-up'>SIGN UP</Button>
               </Link>
             </div>
           </div>

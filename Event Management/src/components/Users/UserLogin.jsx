@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './UserLogin.css';
-import hostimg from '../../assets/userwelcome.jpg';
+import userimg from '../../assets/userwelcome.jpg';
 import Navbar from '../common/Navbar';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../common/Footer';
@@ -11,7 +11,7 @@ function UserLogin() {
 
 
   const [user, setUser] = useState({
-    name: "",
+    username: "",
     password: ""
   });
 
@@ -39,12 +39,12 @@ function UserLogin() {
       <div className="container-fluid gx-0">
         <div className="row gx-0">
            <div className="col-12 col-md-6 ">
-            <img className="img-user" src={hostimg} alt="" />
+            <img className="img-user" src={userimg} alt="" />
           </div>
            <div className="col-12 col-md-6 user-login-div">
             <h4 className='user-login-h2'>Login Your Account </h4>
             <form className='user-login-form '>
-              <input type="text" placeholder='Enter Your name' className='user-login-input' value={user.name} name='name' onChange={inputdata} />
+              <input type="text" placeholder='Enter Your UserName' className='user-login-input' value={user.username} name='username' onChange={inputdata} />
               <input type="password" placeholder='Enter Your Password' className='user-login-input' value={user.password} name='password' onChange={inputdata} />
               <button className='user-login-button' onClick={usersubmit}>Submit</button>
             </form>

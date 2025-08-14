@@ -1,14 +1,15 @@
-.dashboarduser-user{
+.dashboarduser-host{
 display: flex;
 justify-content: center;
 align-items: center;
 gap: 50px;
+
 }
 
-.sidebar-cards-user{ 
+.sidebar-cards-host{ 
   display: inline-block;
 }
 
-.sidebar-cardstwo-user{
+.sidebar-cardstwo-host{
   display: inline-block;
 }

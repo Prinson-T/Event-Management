@@ -9,7 +9,7 @@ function UserProfileView() {
 
     return (
         <div className="full-page">
-        <div className="profile-container">
+        <div className="profile-container-user">
             <UserSideBar />
             <div className="profile-card">
                 <div className="avatar">

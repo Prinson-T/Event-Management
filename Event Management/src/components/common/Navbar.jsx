@@ -17,7 +17,7 @@ import EventIcon from '@mui/icons-material/Event';
 import './Navebar.css';
 
 const pages = ['home', 'about', 'contacts'];
-const settings = ['Admin', 'Hoster', 'User'];
+const settings = ['Admin', 'Host', 'User'];
 
 function Navbar() {
   const navigate = useNavigate();
@@ -48,8 +48,8 @@ function Navbar() {
     handleCloseUserMenu();
     if (setting === 'Admin') {
       navigate('/AdminLogin');
-    } else if (setting === 'Hoster') {
-      navigate('/HosterForm');
+    } else if (setting === 'Host') {
+      navigate('/HostForm');
     } else if (setting === 'User') {
       navigate('/UserLogin');
     }

@@ -41,10 +41,10 @@ function HostSidebar(props) {
   // ✅ Updated with Add Event
   const menuItems = [
     { text: 'Dashboard', icon: <SpaceDashboardIcon sx={{ color: "#ffffff" }} />, path: '/HostDashboard' },
-    { text: 'Events', icon: <EventIcon sx={{ color: "#ffffff" }} />, path: '/events' },
+    { text: 'Events', icon: <EventIcon sx={{ color: "#ffffff" }} />, path: '/ListEvents' },
     { text: 'Add Event', icon: <EventIcon sx={{ color: "#ffffff" }} />, path: '/addevent' }, // New Add Event menu item
-    { text: 'Profile', icon: <AccountCircleIcon sx={{ color: "#ffffff" }} />, path: '/userprofileview' },
-    { text: 'Log Out', icon: <LogoutIcon sx={{ color: "#ffffff" }} />, path: '/UserLogin' }
+    { text: 'Profile', icon: <AccountCircleIcon sx={{ color: "#ffffff" }} />, path: '/hostProfile' },
+    { text: 'Log Out', icon: <LogoutIcon sx={{ color: "#ffffff" }} />, path: '/hostLogin' }
   ];
 
   const drawer = (
