@@ -1,0 +1,104 @@
+.admin-dashboard {
+  padding: 30px;
+  margin-left: 240px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.admin-dashboard h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.user-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.user-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.user-card h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  color: #1976d2;
+}
+
+.user-card p {
+  margin: 6px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.user-card strong {
+  color: #222;
+}
+
+
+
+.user-card.role_user {
+  border-left: 5px solid #388e3c;
+}
+
+.user-card.role_host {
+  border-left: 5px solid #af2dfb;
+}
+
+
+@media (max-width: 992px) {
+  .admin-dashboard {
+    margin-left: 0; 
+    padding: 20px;
+  }
+
+  .user-list {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+  }
+
+  .user-card {
+    padding: 15px;
+  }
+
+  .user-card h3 {
+    font-size: 18px;
+  }
+}
+
+
+@media (max-width: 600px) {
+  .admin-dashboard {
+    padding: 15px;
+  }
+
+  .user-list {
+    grid-template-columns: 1fr; 
+    gap: 12px;
+  }
+
+  .user-card {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .user-card h3 {
+    font-size: 16px;
+  }
+
+  .user-card p {
+    font-size: 13px;
+  }
+}

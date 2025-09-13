@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,12 +12,14 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import EventIcon from '@mui/icons-material/Event';
+
 import './Navebar.css';
 
 const pages = ['home', 'about', 'contacts'];
-const settings = ['Admin', 'Hoster', 'User'];
+const settings = ['Admin', 'Host', 'User'];
 
-function ResponsiveAppBar() {
+function Navbar() {
   const navigate = useNavigate();
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -28,9 +30,16 @@ function ResponsiveAppBar() {
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
-  const handleCloseNavMenu = () => {
+
+  const handleCloseNavMenu = (page) => {
     setAnchorElNav(null);
+    if (page === 'home') {
+      navigate('/');
+    } else if (page) {
+      navigate(`/${page}`);
+    }
   };
+
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
@@ -39,8 +48,8 @@ function ResponsiveAppBar() {
     handleCloseUserMenu();
     if (setting === 'Admin') {
       navigate('/AdminLogin');
-    } else if (setting === 'Hoster') {
-      navigate('/HosterLogin');
+    } else if (setting === 'Host') {
+      navigate('/HostLogin');
     } else if (setting === 'User') {
       navigate('/UserLogin');
     }
@@ -50,12 +59,12 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl" className="navigation">
         <Toolbar disableGutters>
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <EventIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -66,7 +75,7 @@ function ResponsiveAppBar() {
               textDecoration: 'none',
             }}
           >
-            EVENTS
+            <span className='text-decoration-none text-light'>CHRONOEVENTS</span>
           </Typography>
 
           {/* Mobile nav menu button */}
@@ -87,27 +96,29 @@ function ResponsiveAppBar() {
               keepMounted
               transformOrigin={{ vertical: 'top', horizontal: 'left' }}
               open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              onClose={() => handleCloseNavMenu(null)}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
 
-          {/* Desktop nav links */}
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button key={page} onClick={handleCloseNavMenu} sx={{ my: 2, color: 'white', display: 'block' }}>
+              <Button
+                key={page}
+                onClick={() => handleCloseNavMenu(page)}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
                 {page}
               </Button>
             ))}
           </Box>
 
-          {/* User menu button */}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <Button variant="contained" color="success" onClick={handleOpenUserMenu}>
@@ -139,4 +150,4 @@ function ResponsiveAppBar() {
   );
 }
 
-export default ResponsiveAppBar;
+export default Navbar;

@@ -1,0 +1,130 @@
+.add-event-page {
+  display: flex;
+  background-color: #f4f6f8;
+  min-height: 100vh;
+  flex-wrap: wrap; /* Allows stacking on small screens */
+}
+
+.add-event-container {
+  flex: 1;
+  padding: 30px;
+}
+
+.add-event-title {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #152238;
+  font-weight: bold;
+}
+
+.add-event-form {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-group {
+  flex: 1;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.label-add {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-add,
+.textarea-add {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.textarea-add {
+  resize: none;
+}
+
+.form-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.button-add {
+  padding: 10px 20px;
+  background: #23395d;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.button-add:hover {
+  background: #0056b3;
+}
+
+/* Tablet responsive styles */
+@media (max-width: 992px) {
+  .add-event-container {
+    padding: 20px;
+  }
+
+  .add-event-title {
+    font-size: 20px;
+  }
+
+  .form-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .add-event-page {
+    flex-direction: column;
+  }
+
+  .add-event-container {
+    padding: 15px;
+  }
+
+  .add-event-title {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .form-btn {
+    flex-direction: column;
+  }
+
+  .button-add {
+    width: 100%;
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .input-add,
+  .textarea-add {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  .button-add {
+    font-size: 14px;
+    padding: 8px;
+  }
+}

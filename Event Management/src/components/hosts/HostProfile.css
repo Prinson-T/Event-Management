@@ -1,0 +1,161 @@
+.host-full-page {
+  margin: 4rem auto 2rem auto;
+  max-width: 1000px;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+}
+
+.host-profile-wrapper {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+}
+
+.host-profile-content {
+  flex: 1;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the header and details */
+}
+
+.host-profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.host-avatar-large {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 3px solid #fff;
+  width: 100px;
+  height: 100px;
+}
+
+.host-header-info h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
+}
+
+.host-header-info p {
+  margin: 0.25rem 0;
+  color: #666;
+}
+
+.host-profile-details {
+  width: 100%;
+}
+
+.host-profile-details h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+.host-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.host-detail-grid p,
+.host-detail-grid label {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.host-detail-grid strong {
+  color: #111;
+}
+
+.host-detail-grid input,
+.host-detail-grid textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+.host-detail-grid textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.host-button-div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.host-profile-edit-btn,
+.host-profile-save-btn,
+.host-profile-cancel-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.host-profile-edit-btn {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.host-profile-edit-btn:hover {
+  background: #3730a3;
+  transform: translateY(-2px);
+}
+
+.host-profile-save-btn {
+  background: #10b981;
+  color: #fff;
+}
+
+.host-profile-save-btn:hover {
+  background: #047857;
+  transform: translateY(-2px);
+}
+
+.host-profile-cancel-btn {
+  background: #ef4444;
+  color: #fff;
+}
+
+.host-profile-cancel-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
+  .host-profile-wrapper {
+    flex-direction: column;
+  }
+
+  .host-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .host-profile-content {
+    padding: 1.5rem;
+  }
+}

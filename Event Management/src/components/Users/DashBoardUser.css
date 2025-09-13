@@ -1,0 +1,14 @@
+.dashboarduser-user{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 50px;
+}
+
+.sidebar-cards-user{ 
+  display: inline-block;
+}
+
+.sidebar-cardstwo-user{
+  display: inline-block;
+}

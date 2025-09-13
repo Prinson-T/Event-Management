@@ -8,6 +8,9 @@ import img0 from '../../assets/image-0.jpg';
 import img1 from '../../assets/image-1.jpg';
 import img2 from '../../assets/image-2.jpg';
 import img3 from '../../assets/image-3.jpg';
+import img4 from '../../assets/image-4.jpg';
+import img5 from '../../assets/image-5.jpg';
+import img6 from '../../assets/image-6.jpg';
 import about from '../../assets/about.jpg';
 import { Link } from 'react-router-dom';
 
@@ -21,8 +24,8 @@ function LandingPage() {
             <h1 className='heading'>Choose Your Dream <br /> Event</h1>
             <p className='para'>Discover unforgettable events crafted with precision and passion. From corporate <br /> gatherings to dream weddings, we make every moment count.</p>
             <div className='button-register'>
-              <Link to={'/login'}>
-                <Button variant="contained" className='sing-up'>SING UP</Button>
+              <Link to={'/register'}>
+                <Button variant="contained" className='sing-up'>SIGN UP</Button>
               </Link>
             </div>
           </div>
@@ -59,11 +62,11 @@ function LandingPage() {
       </div>
 
       <div className="row gx-0 color-cards">
-      
+
         <div className='cards col-12 col-md-4'>
           <Cards
             image={img1}
-            component="img" 
+            component="img"
             height="140"
             alt="events"
             heading="Wedding Event"
@@ -90,9 +93,9 @@ function LandingPage() {
             body="Make Your Birthday Party"
           />
         </div>
-         <div className="cards col-12 col-md-4">
+        <div className="cards col-12 col-md-4">
           <Cards
-            image={img3}
+            image={img4}
             component="img"
             height="140"
             alt="events"
@@ -100,9 +103,9 @@ function LandingPage() {
             body="Make Your Birthday Party"
           />
         </div>
-         <div className="cards col-12 col-md-4">
+        <div className="cards col-12 col-md-4">
           <Cards
-            image={img3}
+            image={img5}
             component="img"
             height="140"
             alt="events"
@@ -110,9 +113,9 @@ function LandingPage() {
             body="Make Your Birthday Party"
           />
         </div>
-         <div className="cards col-12 col-md-4">
+        <div className="cards col-12 col-md-4">
           <Cards
-            image={img3}
+            image={img6}
             component="img"
             height="140"
             alt="events"
@@ -121,7 +124,6 @@ function LandingPage() {
           />
         </div>
       </div>
-
       <Footer />
     </div>
   )

@@ -1,102 +1,119 @@
-/* Full-screen split container */
-html, body, #root {
-    height: 100%;
-    margin: 0;
-}
-.login-screen {
-    display: flex;
-    height: 100vh;
-    background-color: #ffffff;
+/* Overall login page layout */
+.login-admin {
+  display: flex;
+  min-height: 90vh;
+  background: #f4f6f8;
+  flex-wrap: wrap; /* Important for mobile stacking */
 }
 
-.split.left-side {
-    flex: 1;
-    background: url('../../assets/Adminlogin.jpg') no-repeat center/cover;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 20px;
-
+/* Left side: login form */
+.admin-login-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
 }
 
-.split.right-side {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
+/* Login box */
+.admin-box {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
 }
 
-/* Login box styling */
-.login-box {
-    padding: 2rem;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+.admin-head {
+  font-size: 22px;
+  font-weight: bold;
+  color: #152238;
+  margin-bottom: 10px;
+}
+
+.admin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.admin-input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.admin-button {
+  padding: 12px;
+  background: #23395d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.admin-button:hover {
+  background: #0056b3;
+}
+
+.forgot {
+  display: block;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #23395d;
+  text-decoration: none;
+}
+
+.forgot:hover {
+  text-decoration: underline;
+}
+
+/* Right side: background image */
+.admin-image {
+  flex: 1;
+  background: url("https://images.unsplash.com/photo-1556740758-90de374c12ad") no-repeat center center/cover;
+  min-height: 300px;
+}
+
+/* 📱 Responsive adjustments */
+@media (max-width: 992px) {
+  .login-admin {
+    flex-direction: column;
+  }
+
+  .admin-login-div {
+    order: 1; /* Show form first */
     width: 100%;
-    max-width: 404px;
-    text-align: center;
-}
+    padding: 20px;
+  }
 
-.login-box h1 {
-    margin-bottom: 1.5rem;
-    color: black;
-}
+  .admin-image {
+    order: 2;
+    width: 100%;
+    min-height: 200px;
+  }
 
-.login-box form {
-    display: flex;
-    flex-direction: column;
-}
-
-.login-box input {
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    height: 40px;
-    border-radius: 10px;
-}
-
-.login-box button {
-    padding: 0.75rem;
-    background-color: #0066cc;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-}
-
-.login-box button:hover {
-    background-color: #005bb5;
-}
-
-/* Link styles */
-.links {
-    margin-top: 1rem;
-}
-.links a {
-    text-decoration: none;
-    color: #0066cc;
-    margin: 0 0.5rem;
-}
-.forgot{
-    display: flex;
-    align-items: end;
-    justify-content: end;
-    text-decoration: none;
-    font-size: small;
-}
-.links a:hover {
-    color: #004a99;
-}
-
-/* Responsive: stack on mobile */
-@media (max-width: 768px) {
-  .login-screen {
-    flex-direction: column;
-  }             
-  .split {
-    height: 50vh;
+  .admin-box {
+    max-width: 100%;
   }
 }
 
+@media (max-width: 576px) {
+  .admin-box {
+    padding: 20px;
+  }
 
+  .admin-head {
+    font-size: 18px;
+  }
 
-
+  .admin-input,
+  .admin-button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
