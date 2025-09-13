@@ -1,136 +1,161 @@
 .host-full-page {
-  background-color: #ffffff;
-  min-height: 100vh;
-  padding: 20px;
+  margin: 4rem auto 2rem auto;
+  max-width: 1000px;
+  font-family: "Inter", sans-serif;
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
 }
 
 .host-profile-wrapper {
   display: flex;
-  gap: 20px;
+  gap: 2rem;
+  width: 100%;
 }
 
 .host-profile-content {
   flex: 1;
-  margin-top: 5%;
-  background: #e2e2e2;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-  padding: 30px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the header and details */
 }
 
 .host-profile-header {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
-  border-bottom: 2px solid #000000;
-  padding-bottom: 20px;
-  margin-bottom: 25px;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .host-avatar-large {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 4px solid #007bff;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.host-avatar-large img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 3px solid #fff;
+  width: 100px;
+  height: 100px;
 }
 
 .host-header-info h2 {
   margin: 0;
-  font-size: 24px;
-  color: #152238;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #222;
 }
 
 .host-header-info p {
-  margin: 4px 0;
-  color: #555;
-  font-size: 14px;
+  margin: 0.25rem 0;
+  color: #666;
 }
 
-/* Profile Form */
-.host-profile-form h3 {
-  margin-bottom: 20px;
-  color: #152238;
-}
-
-.host-form-row {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  margin-bottom: 15px;
-}
-
-.host-form-group {
-  flex: 1;
-  min-width: 250px;
-}
-
-.host-form-group-label {
-  font-weight: 600;
-  color: #333;
-  margin-bottom: 6px;
-  display: block;
-}
-
-.host-form-group-input {
+.host-profile-details {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 15px;
-  background: #fafafa;
-  transition: all 0.3s ease;
 }
 
-.host-form-group-input:focus {
-  border-color: #007bff;
-  background: #fff;
-  outline: none;
-}
-
-/* Save Button */
-.host-button-div {
+.host-profile-details h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 0.5rem;
   text-align: center;
-  margin-top: 20px;
+}
+
+.host-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.host-detail-grid p,
+.host-detail-grid label {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.host-detail-grid strong {
+  color: #111;
+}
+
+.host-detail-grid input,
+.host-detail-grid textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+}
+
+.host-detail-grid textarea {
+  resize: vertical;
+  min-height: 60px;
+}
+
+.host-button-div {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.host-profile-edit-btn,
+.host-profile-save-btn,
+.host-profile-cancel-btn {
+  padding: 10px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.host-profile-edit-btn {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.host-profile-edit-btn:hover {
+  background: #3730a3;
+  transform: translateY(-2px);
 }
 
 .host-profile-save-btn {
-  padding: 10px 30px;
-  background: linear-gradient(90deg, #007bff, #0056b3);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
-  transition: all 0.3s ease;
+  background: #10b981;
+  color: #fff;
 }
 
 .host-profile-save-btn:hover {
-  background: linear-gradient(90deg, #0056b3, #003f8a);
+  background: #047857;
+  transform: translateY(-2px);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+.host-profile-cancel-btn {
+  background: #ef4444;
+  color: #fff;
+}
+
+.host-profile-cancel-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 700px) {
   .host-profile-wrapper {
     flex-direction: column;
   }
 
-  .host-profile-content {
-    padding: 20px;
+  .host-detail-grid {
+    grid-template-columns: 1fr;
   }
 
-  .host-profile-header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .host-profile-content {
+    padding: 1.5rem;
   }
 }

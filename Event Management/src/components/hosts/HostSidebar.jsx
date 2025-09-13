@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  AppBar, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem,
-  ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography, useMediaQuery
+  AppBar, Box, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Toolbar, Typography, useMediaQuery
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
+import EventNoteIcon from "@mui/icons-material/EventNote";
+import HowToRegIcon from "@mui/icons-material/HowToReg";
 import SpaceDashboardIcon from '@mui/icons-material/SpaceDashboard';
 import EventIcon from '@mui/icons-material/Event';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
@@ -38,14 +39,23 @@ function HostSidebar(props) {
     setIsClosing(false);
   };
 
-  // ✅ Updated with Add Event
+
   const menuItems = [
     { text: 'Dashboard', icon: <SpaceDashboardIcon sx={{ color: "#ffffff" }} />, path: '/HostDashboard' },
-    { text: 'Events', icon: <EventIcon sx={{ color: "#ffffff" }} />, path: '/ListEvents' },
-    { text: 'Add Event', icon: <EventIcon sx={{ color: "#ffffff" }} />, path: '/addevent' }, // New Add Event menu item
+    { text: 'My Events', icon: <EventNoteIcon sx={{ color: "#ffffff" }} />, path: '/hostevnts' },
+    { text: 'Registered', icon: <HowToRegIcon sx={{ color: "#ffffff" }} />, path: '/registrations' },
+    { text: 'Add Event', icon: <EventIcon sx={{ color: "#ffffff" }} />, path: '/addevent' },
     { text: 'Profile', icon: <AccountCircleIcon sx={{ color: "#ffffff" }} />, path: '/hostProfile' },
-    { text: 'Log Out', icon: <LogoutIcon sx={{ color: "#ffffff" }} />, path: '/hostLogin' }
+    { text: 'Log Out', icon: <LogoutIcon sx={{ color: "#ffffff" }} />, action: 'handleLogout' }
   ];
+  const handleLogout = () => {
+
+    localStorage.clear();
+
+
+
+    navigate("/hostLogin");
+  };
 
   const drawer = (
     <div>
@@ -54,8 +64,13 @@ function HostSidebar(props) {
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton
-              onClick={() => navigate(item.path)}
-              sx={{
+              onClick={() => {
+                if (item.action === "handleLogout") {
+                  handleLogout();
+                } else if (item.path) {
+                  navigate(item.path);
+                }
+              }} sx={{
                 color: "#ffffff",
                 '&:hover': {
                   backgroundColor: 'rgba(255, 255, 255, 0.1)',

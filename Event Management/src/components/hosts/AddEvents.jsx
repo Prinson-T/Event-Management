@@ -1,66 +1,117 @@
 import React, { useState } from "react";
 import "./AddEvents.css";
-import HostSidebar from "./HostSidebar"; // or UserSidebar if needed
+import HostSidebar from "./HostSidebar";
+import axios from "axios";
 
-function AddEvets() {
+function AddEvents() {
   const [eventData, setEventData] = useState({
     title: "",
-    date: "",
-    location: "",
     description: "",
-    image: null,
+    photo: null,
   });
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    if (files) {
-      setEventData({ ...eventData, [name]: files[0] });
+
+    if (files && files[0]) {
+      const file = files[0];
+
+      if (!file.type.startsWith("image/")) {
+        alert("Only image files are allowed!");
+        return;
+      }
+
+      const maxSize = 16 * 1024 * 1024; 
+      if (file.size > maxSize) {
+        alert("File too large! Maximum 16MB allowed.");
+        return;
+      }
+
+      setEventData({ ...eventData, [name]: file });
     } else {
       setEventData({ ...eventData, [name]: value });
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Event Data:", eventData);
-    alert("Event added successfully!");
+    const token = localStorage.getItem("token");
+
+    const formData = new FormData();
+    formData.append("title", eventData.title);
+    formData.append("description", eventData.description);
+    formData.append("photo", eventData.photo);
+
+    try {
+      const result = await axios.post("http://localhost:8080/events/create", formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      console.log(result.data);
+      alert("Event added successfully!");
+      setEventData({
+        title: "",
+        description: "",
+        photo: null,
+      });
+    } catch (error) {
+      console.error("Error uploading event:", error);
+      alert("Failed to add event!");
+    }
   };
 
   return (
     <div className="add-event-page">
       <HostSidebar />
 
-      <div className="add-event-container ">
+      <div className="add-event-container">
         <h2 className="add-event-title">Add New Event</h2>
         <form onSubmit={handleSubmit} className="add-event-form">
           <div className="form-group">
             <label className="label-add">Event Title</label>
-            <input type="text" name="title" className="input-add" value={eventData.title} onChange={handleChange} placeholder="Enter event title" required />
-          </div>
-
-          <div className="form-row">
-            <div className="form-group">
-              <label className="label-add">Date</label>
-              <input type="date" name="date" className="input-add"  value={eventData.date}onChange={handleChange} required/>
-            </div>
-
-            <div className="form-group">
-              <label className="label-add">Location</label>
-              <input type="text" name="location" className="input-add"   value={eventData.location} onChange={handleChange} placeholder="Event location"required />
-            </div>
+            <input
+              type="text"
+              name="title"
+              className="input-add"
+              value={eventData.title}
+              onChange={handleChange}
+              placeholder="Enter event title"
+              required
+            />
           </div>
 
           <div className="form-group">
             <label className="label-add">Description</label>
-            <textarea className="textarea-add "  name="description" value={eventData.description} onChange={handleChange} placeholder="Enter event description" rows="4"  required
+            <textarea
+              className="textarea-add"
+              name="description"
+              value={eventData.description}
+              onChange={handleChange}
+              placeholder="Enter event description"
+              rows="4"
+              required
             ></textarea>
           </div>
+
           <div className="form-group">
-            <label className="label-add">Upload Image</label>
-            <input type="file" name="image" className="input-add"  onChange={handleChange} />
+            <label className="label-add">Upload Image (Max 16MB)</label>
+            <input
+              type="file"
+              name="photo"
+              className="input-add"
+              onChange={handleChange}
+              accept="image/*"
+              required
+            />
           </div>
+
           <div className="form-btn">
-            <button className="button-add" type="submit">Add Event</button>
+            <button className="button-add" type="submit">
+              Add Event
+            </button>
           </div>
         </form>
       </div>
@@ -68,4 +119,4 @@ function AddEvets() {
   );
 }
 
-export default AddEvets;
+export default AddEvents;

@@ -48,6 +48,22 @@
   box-shadow: 0 0 0 3px rgba(25, 118, 210, 0.15);
 }
 
+.host-tag  {
+  text-align: center;
+  display: block;
+  margin-top: 10px;
+  color: #2111cf;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.tag-link{
+  margin-top: 10px;
+  color: #000000;
+  text-decoration: none;
+  font-size: 14px;
+}
+
 .host-login-button {
   padding: 12px;
   font-size: 16px;

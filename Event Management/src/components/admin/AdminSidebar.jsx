@@ -37,11 +37,19 @@ export default function AdminSidebar({ children }) {
 
   const menuItems = [
     { text: "Dashboard", icon: <DashboardIcon />, path: "/adminDashboard" },
-    { text: "Manage Users", icon: <PeopleIcon />, path: "/manageusers" },
-    { text: "Manage Host", icon: <PeopleIcon />, path: "/managehost" },
+    { text: "Manage All Users", icon: <PeopleIcon />, path: "/userlist" },
+    { text: "Manage All Host", icon: <PeopleIcon />, path: "/hostlist" },
     { text: "Manage Events", icon: <EventIcon />, path: "/manageevents" },
-    { text: "Logout", icon: <LogoutIcon />, path: "/logout" }
+    { text: "Logout", icon: <LogoutIcon />,  action: 'handleLogout' }
   ];
+   const handleLogout = () => {
+
+    localStorage.clear();
+
+
+
+    navigate("/AdminLogin");
+  };
 
   const drawer = (
     <div>
@@ -54,7 +62,13 @@ export default function AdminSidebar({ children }) {
       <List>
         {menuItems.map((item, index) => (
           <ListItem key={index} disablePadding>
-            <ListItemButton onClick={() => navigate(item.path)}>
+            <ListItemButton    onClick={() => {
+                if (item.action === "handleLogout") {
+                  handleLogout();
+                } else if (item.path) {
+                  navigate(item.path);
+                }
+              }}>
               <ListItemIcon sx={{ color: "#fff" }}>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} sx={{ color: "#fff" }} />
             </ListItemButton>

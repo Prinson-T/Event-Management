@@ -1,0 +1,115 @@
+.manage-events {
+  padding: 20px;
+  margin-left: 250px;
+}
+
+.manage-events h2 {
+  margin-bottom: 20px;
+  color: #23395d;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.events-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center; /* center items */
+}
+
+.event-card {
+  height: auto;
+  width: 300px;
+  background-color: #f5f5f5;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #152238;
+}
+
+.event-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+
+.event-photo {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================== */
+/* ✅ Responsive Design */
+/* ==================== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .manage-events {
+    margin-left: 200px; /* sidebar smaller */
+  }
+
+  .event-card {
+    width: 260px;
+  }
+}
+
+/* Mobile Landscape */
+@media (max-width: 768px) {
+  .manage-events {
+    margin-left: 0; /* no fixed sidebar on mobile */
+    padding: 15px;
+  }
+
+  .events-container {
+    gap: 15px;
+  }
+
+  .event-card {
+    width: 100%; /* full width on mobile */
+    max-width: 400px;
+  }
+
+  .event-card p {
+    font-size: 13px;
+  }
+}
+
+/* Mobile Portrait */
+@media (max-width: 480px) {
+  .manage-events h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .event-card {
+    width: 100%;
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .event-photo {
+    height: 140px;
+  }
+
+  .event-card p {
+    font-size: 12px;
+  }
+}

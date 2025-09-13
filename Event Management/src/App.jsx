@@ -5,19 +5,26 @@ import AboutUs from './components/common/AboutUs'
 import AdminLogin from './components/admin/AdminLogin'
 import UserLogin from './components/Users/UserLogin'
 import UserForm from './components/Users/UserForm';
-import DashboardUser from './components/Users/DashboardUser'
+import DashboardUser from './components/Users/UserDashboard'
 import HostForm from './components/hosts/HostForm'
 import HostLogin from './components/hosts/HostLogin'
 import SideBar from './components/Users/UserSideBar'
 import UserProfileView from './components/Users/UserProfileView'
-import ListEvents from './components/common/ListEvents'
 import HostDashboard from './components/hosts/HostDashboard'
 import HostProfile from './components/hosts/HostProfile'
 import AddEvets from './components/hosts/AddEvents'
 import AdminDashboard from './components/admin/AdminDasboard'
-import ManageUser from './components/admin/ManageUser'
+import UserList from './components/admin/UserList'
 import ManageEvents from './components/admin/ManageEvents'
-import ManageHost from './components/admin/ManageHost'
+import HostEventsList from './components/hosts/HostEventsList'
+import ListEvent from './components/Users/ListEvent'
+import ProtectedRoute from './components/common/ProtectedRoute'
+import HostList from './components/admin/HostList'
+import EventDetails from './components/Users/EventDetails'
+import HostEventDetails from './components/hosts/HostEventDetails'
+import AdminEventDetails from './components/admin/AdminEventDetails'
+import HostRegistrations from './components/hosts/HostRegistrations'
+
 
 
 function App() {
@@ -25,26 +32,126 @@ function App() {
     <div>
       <Router>
         <Routes>
+          {/* Public Routes */}
           <Route path='/' element={<LandingPage />} />
           <Route path='/AdminLogin' element={<AdminLogin />} />
-          <Route path='/HostForm' element={<HostForm />} />
           <Route path='/UserLogin' element={<UserLogin />} />
-          <Route path='/about' element={<AboutUs />} />
+          <Route path='/HostLogin' element={<HostLogin />} />
+          <Route path='/HostForm' element={<HostForm />} />
           <Route path='/register' element={<UserForm />} />
-          <Route path='/hostLogin' element={<HostLogin />} />
-          <Route path='/userDashboard' element={<DashboardUser />} />
-          <Route path='/userprofileview' element={<UserProfileView />} />
-          <Route path='/HostDashboard' element={<HostDashboard />} />
-          <Route path='/hostProfile' element={<HostProfile />} />
-          <Route path='/hostProfile' element={<HostProfile />} />
-          <Route path='/addevent' element={<AddEvets />} />
-          <Route path='/adminDashboard' element={<AdminDashboard />} />
-          <Route path='/logout' element={<AdminLogin />} />
-          <Route path='/manageusers' element={<ManageUser />} />
-          <Route path='/manageevents' element={<ManageEvents />} />
-          <Route path='/managehost' element={<ManageHost />} />
-          <Route path='/ListEvents' element={<ListEvents />} />
-          <Route path='/sideBar' element={<SideBar />} />
+          <Route path='/about' element={<AboutUs />} />
+
+          {/* Protected Routes */}
+          <Route
+            path='/userDashboard'
+            element={
+              <ProtectedRoute>
+                <DashboardUser />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/admin/event/:id" element={<AdminEventDetails />} />
+
+          <Route path="/event/:id" element={<ProtectedRoute><HostEventDetails /></ProtectedRoute>} />
+          <Route path="/events/:id" element={<ProtectedRoute><EventDetails /></ProtectedRoute>} />
+
+          <Route
+            path='/userprofileview'
+            element={
+              <ProtectedRoute>
+                <UserProfileView />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/HostDashboard'
+            element={
+              <ProtectedRoute>
+                <HostDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/hostProfile'
+            element={
+              <ProtectedRoute>
+                <HostProfile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/addevent'
+            element={
+              <ProtectedRoute>
+                <AddEvets />
+              </ProtectedRoute>
+            }
+          />
+           <Route
+            path='/registrations'
+            element={
+              <ProtectedRoute>
+                <HostRegistrations />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/adminDashboard'
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/userlist'
+            element={
+              <ProtectedRoute>
+                <UserList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/hostlist'
+            element={
+              <ProtectedRoute>
+                <HostList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/manageevents'
+            element={
+              <ProtectedRoute>
+                <ManageEvents />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path='/hostevnts'
+            element={
+              <ProtectedRoute>
+                <HostEventsList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/ListEvents'
+            element={
+              <ProtectedRoute>
+                <ListEvent />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path='/sideBar'
+            element={
+              <ProtectedRoute>
+                <SideBar />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Router>
     </div>

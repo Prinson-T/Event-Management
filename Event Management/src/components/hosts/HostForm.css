@@ -53,21 +53,7 @@ color: #ffffff;
   background-color: #007BFF;
 }
 
-.host-tag  {
-  text-align: center;
-  display: block;
-  margin-top: 10px;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 14px;
-}
 
-.tag-link{
-  margin-top: 10px;
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 14px;
-}
 
 @media (max-width: 600px) {
   .overlay-content-host {

@@ -42,8 +42,18 @@ function UserSideBar(props) {
     { text: 'Dashboard', icon: <SpaceDashboardIcon sx={{ color: "#ffffff" }} />, path: '/userDashboard' },
     { text: 'Events', icon: <EventIcon sx={{ color: "#ffffff" }} />, path: '/ListEvents' },
     { text: 'Profile', icon: <AccountCircleIcon sx={{ color: "#ffffff" }} />, path: '/userprofileview' },
-    { text: 'Log Out', icon: <LogoutIcon sx={{ color: "#ffffff" }} />, path: '/UserLogin' }
+    { text: 'Log Out', icon: <LogoutIcon sx={{ color: "#ffffff" }} />, action: "handleLogout" }
   ];
+
+  const handleLogout = () => {
+  
+    localStorage.clear();
+
+
+
+    navigate("/UserLogin");
+  };
+
 
   const drawer = (
     <div>
@@ -52,7 +62,13 @@ function UserSideBar(props) {
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton
-              onClick={() => navigate(item.path)}
+              onClick={() => {
+                if (item.action === "handleLogout") {
+                  handleLogout();
+                } else if (item.path) {
+                  navigate(item.path);
+                }
+              }}
               sx={{
                 color: "#ffffff",
                 '&:hover': {

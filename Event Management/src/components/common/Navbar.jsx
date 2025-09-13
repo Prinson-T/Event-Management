@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -49,7 +49,7 @@ function Navbar() {
     if (setting === 'Admin') {
       navigate('/AdminLogin');
     } else if (setting === 'Host') {
-      navigate('/HostForm');
+      navigate('/HostLogin');
     } else if (setting === 'User') {
       navigate('/UserLogin');
     }
@@ -64,7 +64,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
+            href="/"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -75,7 +75,7 @@ function Navbar() {
               textDecoration: 'none',
             }}
           >
-            CHRONOEVENTS
+            <span className='text-decoration-none text-light'>CHRONOEVENTS</span>
           </Typography>
 
           {/* Mobile nav menu button */}
